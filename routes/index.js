@@ -6,9 +6,9 @@ const router = require('express').Router();
 
 
 
-router.use('/', Controller.def)
+router.get('/', Controller.def)
 
-
+router.get('/cards', Controller.getAllCards)
 
 
 module.exports = router
