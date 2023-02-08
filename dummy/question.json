@@ -1,0 +1,37 @@
+[
+    {
+        "cardId": 89631139,
+        "cardName": "Blue-Eyes White Dragon",
+        "question": "Merupakan kartu andalan yang digunakan oleh Kaiba dan selalu menjadi tandingannya \"Dark Magician\"",
+        "firstClue": "Kartu Ini Bertipe Normal Monster dan memiliki Attack sebesar 3000 dan Defend sebesar 2500",
+        "secondClue": "Temasuk kedalam Archetype \"Blue-Eyes\""
+    },
+    {
+        "cardId": 55144522,
+        "cardName": "Pot of Greed",
+        "question": "Kartu yang ketika di aktifkan di Spell & Trap Zone akan membuat player mengambil 2 kartu dari deck.",
+        "firstClue": "Kartu ini Bertipe Spell, dan memiliki deskripsi yang sangat singkat.",
+        "secondClue": "\"POT OF GREED ALLOWS ME TO DRAW TWO MORE CARDS\""
+    },
+    {
+        "cardId": 12580477,
+        "cardName": "Raigeki",
+        "question": "Kartu ini dapat menghancurkan seluruh monster yang musuh kontrol.",
+        "firstClue": "Kartu ini sempat masuk kedalam banlist \"Limited\", dalam jangka waktu yang cukup lama",
+        "secondClue": "Kartu ini bertipe Normal Spell dan memiliki Artwork petir."
+    },
+    {
+        "cardId": 10000020,
+        "cardName": "Slifer the Sky Dragon",
+        "question": "Kartu yang andalan yang dimiliki oleh \"Yami Yugi\" setelah mengalahkan \"Marik_Ishtar\"",
+        "firstClue": "Kartu ini memilki Type \"Divine-Beast\" dan Memiliki attack ? dan defense ? ",
+        "secondClue": "Hanya bisa di summon dengan mengorbankan 3 monster yang ada di field dan bisa Di Normal Set"
+    },
+    {
+        "cardId": 46986414,
+        "cardName": "Dark Magician",
+        "question": "Memiliki Attack sebesar 2500 dan memiliki Attribute Dark",
+        "firstClue": "Memiliki Defense sebesar 2100 dan memiliki Type \"Spellcaster\"",
+        "secondClue": "Merupakan kartu andalan yang digunakan oleh Yugi Muto"
+    }
+]

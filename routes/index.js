@@ -12,4 +12,15 @@ router.get('/cards', Controller.getAllCards)
 
 router.get('/cardsRandom', Controller.getRandomCards)
 
+
+
+
+
+
+
+
+
+
+router.get('/cardsQuiz', Controller.getOneCardForQuiz)
+
 module.exports = router
