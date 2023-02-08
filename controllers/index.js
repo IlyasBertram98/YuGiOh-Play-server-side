@@ -1,9 +1,12 @@
 const { default: axios } = require("axios");
-
+const { Question } = require('../models')
 //data dummy
-// const cards = require('../../YuGiOh-Play-mini-server/db/allCard.json');
+const cards = require('../../YuGiOh-Play-mini-server/db/allCard.json');
 const getCardBySets = require("../helpers/getCardBySet");
 const { superRare, ultraRare, secretRare } = require("../helpers/randomCard");
+
+const chance = require('chance').Chance();
+
 
 class Controller  {
     static async def(req, res, next) {
@@ -89,6 +92,39 @@ class Controller  {
             // console.log(output.length);
 
             res.status(200).json(output)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    static async getOneCardForQuiz(req, res, next) {
+        try {
+
+            const dataQuestion = await Question.findAll()
+            const dataQuestionMerge = []
+
+
+            const { data } =  await axios(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
+            
+            dataQuestion.forEach(el => {
+                const pushData = {
+                    cardId: el.cardId,
+                    cardName: el.cardName,
+                    question:  el.question,
+                    firstClue: el.firstClue,
+                    secondClue: el.secondClue,
+                    image_url: ''
+                }
+
+                data.data.forEach(el2 => {
+                    if (el.cardId === el2.id) {
+                        pushData.image_url = el2.card_images[0].image_url;
+                    }
+                })
+                dataQuestionMerge.push(pushData)
+            })
+
+            res.status(200).json(dataQuestionMerge)
         } catch (error) {
             console.log(error);
         }

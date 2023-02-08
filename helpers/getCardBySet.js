@@ -25,7 +25,7 @@ const getCardBySets = (cards, sets, rarity, totalGet) => {
     const result = []
 
     for (let i = 0; i < totalGet; i++) {
-        result.push(temp[chance.integer({ min: 1, max: temp.length })])
+        result.push(temp[chance.integer({ min: 0, max: temp.length - 1 })])
     }
 
 
