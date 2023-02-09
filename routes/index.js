@@ -12,7 +12,7 @@ router.get('/cards', Controller.getAllCards)
 
 router.get('/cardsRandom', Controller.getRandomCards)
 
-
+router.get('/cardSets', Controller.getAllSets)
 
 
 

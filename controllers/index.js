@@ -2,6 +2,7 @@ const { default: axios } = require("axios");
 const { Question } = require('../models')
 //data dummy
 const cards = require('../../YuGiOh-Play-mini-server/db/allCard.json');
+const sets = require('../../YuGiOh-Play-mini-server/db/AllCardSet.json')
 const getCardBySets = require("../helpers/getCardBySet");
 const { superRare, ultraRare, secretRare } = require("../helpers/randomCard");
 
@@ -19,19 +20,29 @@ class Controller  {
 
     static async getAllCards(req, res, next) {
         try {
-            const { page } = req.query
+            const { page, fname } = req.query
+            let option = ''
+            if (fname) {
+                option = option + `&fname=${fname}`
+            }
+            // if (race) {
+            //     option = option + `&race=${race}`
+            // }
+            // console.log(option);
             let endpoint
             if (!page) {
                 endpoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php`
-            } else {
-                endpoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=${page}`
+            } else if (page && !option) {
+                endpoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=7&offset=${page}`
+            } else if (page && option) {
+                endpoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=7&offset=${page}${option}`
             }
-
+            // console.log(endpoint);
             const { data } = await axios(endpoint)
             console.log(data.data.length);
             res.status(200).json(data)
         } catch (error) {
-            console.log(error);
+            console.log(error.code);
         }
     }
 
@@ -93,7 +104,7 @@ class Controller  {
 
             res.status(200).json(output)
         } catch (error) {
-            console.log(error);
+            console.log(error.code);
         }
     }
 
@@ -102,7 +113,6 @@ class Controller  {
 
             const dataQuestion = await Question.findAll()
             const dataQuestionMerge = []
-
 
             const { data } =  await axios(`https://db.ygoprodeck.com/api/v7/cardinfo.php`)
             
@@ -126,7 +136,17 @@ class Controller  {
 
             res.status(200).json(dataQuestionMerge)
         } catch (error) {
-            console.log(error);
+            console.log(error.code);
+        }
+    }
+
+    static async getAllSets(req, res, next) {
+        try {
+            const {data} = await axios(`https://db.ygoprodeck.com/api/v7/cardsets.php`)
+
+            res.status(200).json(data)
+        } catch (error) {
+            console.log(error.code);
         }
     }
 }
