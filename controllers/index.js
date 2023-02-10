@@ -37,7 +37,7 @@ class Controller  {
             } else if (page && option) {
                 endpoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php?num=7&offset=${page}${option}`
             }
-            // console.log(endpoint);
+            console.log(endpoint);
             const { data } = await axios(endpoint)
             console.log(data.data.length);
             res.status(200).json(data)
@@ -99,8 +99,8 @@ class Controller  {
             })
             // console.log(dataRare.length)
             // console.log(dataCommon.length)
-            // console.log(getRarity.common, getRarity.rare, getRarity.super_rare, getRarity.secret_rare);
-            // console.log(output.length);
+            console.log(getRarity.common, getRarity.rare, getRarity.super_rare, getRarity.secret_rare);
+            console.log(output.length);
 
             res.status(200).json(output)
         } catch (error) {
