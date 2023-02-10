@@ -1,12 +1,12 @@
 const { default: axios } = require("axios");
 const { Question } = require('../models')
 //data dummy
-const cards = require('../../YuGiOh-Play-mini-server/db/allCard.json');
-const sets = require('../../YuGiOh-Play-mini-server/db/AllCardSet.json')
+// const cards = require('../../YuGiOh-Play-mini-server/db/allCard.json');
+// const sets = require('../../YuGiOh-Play-mini-server/db/AllCardSet.json')
 const getCardBySets = require("../helpers/getCardBySet");
 const { superRare, ultraRare, secretRare } = require("../helpers/randomCard");
 
-const chance = require('chance').Chance();
+// const chance = require('chance').Chance();
 
 
 class Controller  {
